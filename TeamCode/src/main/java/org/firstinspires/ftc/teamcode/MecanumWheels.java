@@ -1,26 +1,32 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-
-public class MecanumWheels extends OpMode {
+public class MecanumWheels extends LinearOpMode {
     private final double power = .5;
     final double degreesPerSecond = 30;
     private ElapsedTime time;
     private final double secondsPerMeter = 4;
-    private DcMotor leftBack = hardwareMap.get(DcMotor.class,"leftBack");
-    private DcMotor leftFront = hardwareMap.get(DcMotor.class,"leftFront");
-    private DcMotor rightFront = hardwareMap.get(DcMotor.class,"rightFront");
-    private DcMotor rightBack = hardwareMap.get(DcMotor.class,"rightBack");
-    public MecanumWheels()
+    private DcMotor rightBack,leftBack,rightFront,leftFront;
+    public MecanumWheels(DcMotor rightBack, DcMotor leftBack, DcMotor rightFront, DcMotor leftFront)
     {
+        this.rightBack = rightBack;
+        this.leftBack = leftBack;
+        this.rightFront = rightFront;
+        this.leftFront = leftFront;
         time = new ElapsedTime();
 
     }
+
+    @Override
+    public void runOpMode() throws InterruptedException {
+
+    }
+
     private boolean[] changeDefaultValues(boolean[] b)
     {
         for (int i =0;i<b.length;i++)
@@ -224,15 +230,6 @@ public class MecanumWheels extends OpMode {
         {
 
         }
-    }
-    @Override
-    public void init() {
-
-    }
-
-    @Override
-    public void loop() {
-
     }
 
 }
