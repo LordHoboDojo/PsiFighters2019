@@ -38,14 +38,21 @@ public class MecanumWheels extends LinearOpMode {
     public void moveForward(double meters)
     {
         //All wheels forwards
-        ArrayList<DcMotor> motors = new ArrayList<>();
-        motors.add(leftBack);
-        motors.add(leftFront);
-        motors.add(rightFront);
-        motors.add(rightBack);
-        boolean[] directions = new boolean[4];
-        directions = changeDefaultValues(directions);
-        executeFunction(secondsPerMeter*meters,motors,directions);
+//        ArrayList<DcMotor> motors = new ArrayList<>();
+//        motors.add(leftBack);
+//        motors.add(leftFront);
+//        motors.add(rightFront);
+//        motors.add(rightBack);
+//        boolean[] directions = new boolean[4];
+//        directions = changeDefaultValues(directions);
+//        executeFunction(secondsPerMeter*meters,motors,directions);
+//
+        leftBack.setPower(1);
+        rightBack.setPower(1);
+        leftFront.setPower(1);
+        rightFront.setPower(1);
+        time.reset();
+        while(time.time() < 10){}
 
     }
     public void moveBackwards(double meters)
@@ -226,7 +233,7 @@ public class MecanumWheels extends LinearOpMode {
         {
             motorsToUse.get(i).setPower(directions[i] ? power : power*-1);
         }
-        while (time.time()<t)
+        while (time.time()<t&& opModeIsActive())
         {
 
         }
